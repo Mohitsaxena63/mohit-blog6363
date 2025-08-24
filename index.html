@@ -1,286 +1,165 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutorials - MohitCodes</title>
+  <title>MohitCodes - Blog</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- FontAwesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
   <style>
     body {
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      padding-top: 70px; /* space for fixed navbar */
+      background-color: #f8f9fa;
     }
-    h2 {
-      text-align: center;
-      margin: 30px 0;
+    .navbar-brand {
       font-weight: bold;
     }
-    .card {
-      border-radius: 12px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+    .blog-post {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-    }
-    .card img {
-      width: 80px;
-      margin: 20px auto 0;
-    }
-    .card-title {
-      font-weight: bold;
-      text-align: center;
-      margin-top: 10px;
-    }
-    .card-text {
-      text-align: center;
-      color: #555;
-    }
-    .btn-learn {
-      display: block;
-      margin: 15px auto;
-      padding: 8px 20px;
-      border-radius: 6px;
-      background: black;
-      color: white;
-      font-weight: 500;
-      transition: background 0.3s;
-      text-decoration: none;
-    }
-    .btn-learn:hover {
-      background: #444;
-      text-decoration: none;
-    }
-
-    footer {
-      background: #111;
-      color: #bbb;
-      padding: 40px 20px 20px;
-      margin-top: 50px;
-    }
-    footer h5 { color: #fff; margin-bottom: 15px; }
-    .footer-links { list-style: none; padding: 0; }
-    .footer-links li { margin-bottom: 8px; }
-    .footer-links a { color: #bbb; text-decoration: none; transition: color 0.3s; }
-    .footer-links a:hover { color: #fff; }
-    .social-icons a { font-size: 20px; margin-right: 10px; color: #bbb; transition: color 0.3s; }
-    .social-icons a:hover { color: #fff; }
-    .copyright { border-top: 1px solid #333; margin-top: 20px; padding-top: 15px; text-align: center; font-size: 14px; color: #777; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#"><i class="fas fa-code"></i> MohitCodes❤️</a>
+  <!-- Navbar/Header -->
+  <nav class="navbar navbar-light bg-light fixed-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><i class="fas fa-code"></i> MohitCodes❤️</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-graduation-cap"></i> Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-book"></i> Tutorials</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-blog"></i> Blog</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-sticky-note"></i> Notes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-        <!-- Search + Buttons -->
-        <form class="d-flex me-2" onsubmit="return false;">
-          <input id="searchBox" class="form-control me-2" type="search" placeholder="Search...">
-          <button class="btn btn-outline-primary me-2" type="button" onclick="searchTutorials()">Search</button>
-        </form>
-        <a href="#" class="btn btn-primary me-2"><i class="fas fa-sign-in-alt"></i> Login</a>
-        <a href="#" class="btn btn-outline-secondary"><i class="fas fa-user-plus"></i> Signup</a>
-      </div>
     </div>
   </nav>
 
-  <!-- Offcanvas Sidebar -->
-  <div class="offcanvas offcanvas-end bg-white text-dark" tabindex="-1" id="offcanvasNavbar">
+  <!-- Offcanvas Sidebar (Right side) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title text-dark"><i class="fas fa-code"></i> MohitCodes❤️</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      <h5 class="offcanvas-title"><i class="fas fa-code"></i> MohitCodes❤️</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="fas fa-home"></i> Home</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="fas fa-graduation-cap"></i> Courses</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="fas fa-book"></i> Tutorials</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="fas fa-blog"></i> Blog</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="fas fa-sticky-note"></i> Notes</a></li>
-        <li class="nav-item"><a class="nav-link text-dark" href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-graduation-cap"></i> Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-book"></i> Tutorials</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-blog"></i> Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-sticky-note"></i> Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
-      <!-- Search + Buttons -->
-      <form class="d-flex mt-3 mb-3" onsubmit="return false;">
-        <input id="searchBoxMobile" class="form-control me-2" type="search" placeholder="Search...">
-        <button class="btn btn-outline-dark" type="button" onclick="searchTutorials(true)">Search</button>
+      <form class="d-flex mt-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
-      <a href="#" class="btn btn-primary w-100 mb-2"><i class="fas fa-sign-in-alt"></i> Login</a>
-      <a href="#" class="btn btn-outline-secondary w-100"><i class="fas fa-user-plus"></i> Signup</a>
+      <div class="mt-3 d-flex gap-2">
+        <button class="btn btn-outline-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="btn btn-outline-secondary"><i class="fas fa-user-plus"></i> Signup</button>
+      </div>
     </div>
   </div>
 
-   <div class="container">
-    <h2>Tutorials</h2>
-    <div class="row g-4">
+  <!-- Blog Section -->
+  <div class="container mt-4">
+    <h1 class="mb-4">Latest Blog Posts</h1>
 
-      <!-- HTML Tutorial -->
-      <div class="col-md-3 col-sm-6 tutorial-card">
-        <div class="card p-3">
-          <img src="https://img.icons8.com/color/96/html-5.png" alt="HTML">
-          <h5 class="card-title">HTML Tutorial</h5>
-          <p class="card-text">The word hypertext markup language is composed of the words "hypertext" and "markup".</p>
-          <a href="https://mohit-6363.netlify.app/" class="btn-learn">Start Learning!</a>
-        </div>
-      </div>
+    <div class="blog-post">
+      <h3>Blog Post Title 1</h3>
+      <p class="text-muted">August 15, 2025 | Mohit</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex non leo facilisis, a pretium nulla pharetra.</p>
+      <a href="#" class="btn btn-primary btn-sm">Read More</a>
+    </div>
 
-      <!-- CSS Tutorial -->
-      <div class="col-md-3 col-sm-6 tutorial-card">
-        <div class="card p-3">
-          <img src="https://img.icons8.com/color/96/css3.png" alt="CSS">
-          <h5 class="card-title">CSS Tutorial</h5>
-          <p class="card-text">CSS describes how HTML elements are to be displayed on screen, paper, or in other media.</p>
-          <a href="#" class="btn-learn">Start Learning!</a>
-        </div>
-      </div>
+    <div class="blog-post">
+      <h3>Blog Post Title 2</h3>
+      <p class="text-muted">August 10, 2025 | Mohit</p>
+      <p>Curabitur ac odio at mauris feugiat laoreet. Integer nec ligula at ligula elementum volutpat nec non nulla.</p>
+      <a href="#" class="btn btn-primary btn-sm">Read More</a>
+    </div>
 
-      <!-- JavaScript Tutorial -->
-      <div class="col-md-3 col-sm-6 tutorial-card">
-        <div class="card p-3">
-          <img src="https://img.icons8.com/color/96/javascript.png" alt="JS">
-          <h5 class="card-title">JavaScript Tutorial</h5>
-          <p class="card-text">JavaScript is a lightweight, cross-platform, object-oriented language.</p>
-          <a href="#" class="btn-learn">Start Learning!</a>
-        </div>
-      </div>
-
-      <!-- Python Tutorial -->
-      <div class="col-md-3 col-sm-6 tutorial-card">
-        <div class="card p-3">
-          <img src="https://img.icons8.com/color/96/python.png" alt="Python">
-          <h5 class="card-title">Python Tutorial</h5>
-          <p class="card-text">Python is a high-level, interpreted, general-purpose programming language.</p>
-          <a href="#" class="btn-learn">Start Learning!</a>
-        </div>
-      </div>
-
-      <!-- C Tutorial -->
-      <div class="col-md-3 col-sm-6 tutorial-card">
-        <div class="card p-3">
-          <img src="https://img.icons8.com/color/96/c-programming.png" alt="C">
-          <h5 class="card-title">C Tutorial</h5>
-          <p class="card-text">C language is considered the mother language of all modern programming languages.</p>
-          <a href="#" class="btn-learn">Start Learning!</a>
-        </div>
-      </div>
-
-      <!-- React Tutorial -->
-      <div class="col-md-3 col-sm-6 tutorial-card">
-        <div class="card p-3">
-          <img src="https://img.icons8.com/officel/96/react.png" alt="React">
-          <h5 class="card-title">React JS Tutorial</h5>
-          <p class="card-text">React is an open-source JavaScript library for building user interfaces.</p>
-          <a href="#" class="btn-learn">Start Learning!</a>
-        </div>
-      </div>
-
-      <!-- Java Tutorial -->
-      <div class="col-md-3 col-sm-6 tutorial-card">
-        <div class="card p-3">
-          <img src="https://img.icons8.com/color/96/java-coffee-cup-logo.png" alt="Java">
-          <h5 class="card-title">Java Tutorial</h5>
-          <p class="card-text">Java is a programming language created in 1995 and still widely used today.</p>
-          <a href="#" class="btn-learn">Start Learning!</a>
-        </div>
-      </div>
-
-      <!-- C++ Tutorial -->
-      <div class="col-md-3 col-sm-6 tutorial-card">
-        <div class="card p-3">
-          <img src="https://img.icons8.com/color/96/c-plus-plus-logo.png" alt="C++">
-          <h5 class="card-title">C++ Tutorial</h5>
-          <p class="card-text">C++ is a cross-platform language used to create high-performance applications.</p>
-          <a href="#" class="btn-learn">Start Learning!</a>
-        </div>
-      </div>
-
+    <div class="blog-post">
+      <h3>Blog Post Title 3</h3>
+      <p class="text-muted">August 5, 2025 | Mohit</p>
+      <p>Fusce et lectus sit amet orci fringilla tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+      <a href="#" class="btn btn-primary btn-sm">Read More</a>
     </div>
   </div>
 
-  <!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h5>MohitCodes❤️</h5>
-        <p>Learn web development with our comprehensive tutorials and courses. Start your coding journey today!</p>
-      </div>
-      <div class="col-md-2">
-        <h5>Quick Links</h5>
-        <ul class="footer-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Tutorials</a></li>
-          <li><a href="#">Courses</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
-      <div class="col-md-2">
-        <h5>Resources</h5>
-        <ul class="footer-links">
-          <li><a href="#">HTML</a></li>
-          <li><a href="#">CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">React</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h5>Connect With Us</h5>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+  <!-- Footer Section -->
+  <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+    <div class="container">
+      <div class="row">
+        <!-- About -->
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold"><i class="fas fa-code"></i> MohitCodes</h5>
+          <p>Learn coding the right way! Join MohitCodes to master Web Development, ML, and more with tutorials, courses, and community support.</p>
         </div>
-        <div class="mt-3">
-          <p><i class="fas fa-envelope"></i> mohitoutlook.official@gmail.com</p>
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light text-decoration-none"><i class="fas fa-home me-2"></i>Home</a></li>
+            <li><a href="#" class="text-light text-decoration-none"><i class="fas fa-graduation-cap me-2"></i>Courses</a></li>
+            <li><a href="#" class="text-light text-decoration-none"><i class="fas fa-book me-2"></i>Tutorials</a></li>
+            <li><a href="#" class="text-light text-decoration-none"><i class="fas fa-blog me-2"></i>Blog</a></li>
+            <li><a href="#" class="text-light text-decoration-none"><i class="fas fa-envelope me-2"></i>Contact</a></li>
+          </ul>
+        </div>
+        <!-- Contact & Social -->
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold">Contact & Social</h5>
+          <p><i class="fas fa-envelope me-2"></i> info@mohitcodes.com</p>
+          <p><i class="fas fa-phone me-2"></i> +91 9876543210</p>
+          <div class="d-flex gap-3 mt-2">
+            <a href="#" class="text-light fs-5"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-light fs-5"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-light fs-5"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="text-light fs-5"><i class="fab fa-github"></i></a>
+          </div>
         </div>
       </div>
+      <hr class="bg-light">
+      <div class="text-center small">
+        &copy; 2026 Mohit Saxena. All rights reserved.<br>
+        Made with ❤️ Mohit Saxena
+      </div>
     </div>
-    <div class="copyright">
-      <p>&copy; 2026 MohitCodes❤️. All Rights Reserved.</p>
-    </div>
-  </div>
-</footer>
-
+  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Search Script -->
+  <!-- Search functionality -->
   <script>
-    function searchTutorials(isMobile = false) {
-      const query = (isMobile ? document.getElementById('searchBoxMobile').value : document.getElementById('searchBox').value).toLowerCase();
-      const cards = document.querySelectorAll('.tutorial-card');
-      cards.forEach(card => {
-        const title = card.querySelector('.card-title').innerText.toLowerCase();
-        const text = card.querySelector('.card-text').innerText.toLowerCase();
-        if (title.includes(query) || text.includes(query)) {
-          card.style.display = 'block';
+    const searchForm = document.querySelector('form[role="search"]');
+    const searchInput = searchForm.querySelector('input[type="search"]');
+    const blogPosts = document.querySelectorAll('.blog-post');
+
+    function filterPosts(query) {
+      const lowerQuery = query.toLowerCase();
+      blogPosts.forEach(post => {
+        const title = post.querySelector('h3').textContent.toLowerCase();
+        const content = post.querySelector('p:not(.text-muted)').textContent.toLowerCase();
+        if (title.includes(lowerQuery) || content.includes(lowerQuery)) {
+          post.style.display = 'block';
         } else {
-          card.style.display = 'none';
+          post.style.display = 'none';
         }
       });
     }
+
+    searchForm.addEventListener('submit', e => {
+      e.preventDefault();
+      filterPosts(searchInput.value);
+    });
+
+    searchInput.addEventListener('input', e => {
+      filterPosts(searchInput.value);
+    });
   </script>
 </body>
 </html>
