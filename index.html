@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,88 +10,116 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      padding-top: 70px; /* space for fixed navbar */
+      padding-top: 70px;
       background-color: #f8f9fa;
-      touch-action: manipulation;
     }
     .navbar-brand {
       font-weight: bold;
     }
-    .blog-post {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    .blog-card {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(224, 64, 64, 0.1);
+      transition: transform 0.3s ease;
     }
-    footer a:hover {
-      text-decoration: underline;
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+    .blog-card img {
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .btn-read {
+      background: black;
+      color: white;
+      width: 100%;
+      font-weight: bold;
+    }
+    .btn-read:hover {
+      background: #eb4747;
     }
   </style>
 </head>
 <body>
 
   <!-- Navbar/Header -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <nav class="navbar navbar-light bg-light fixed-top shadow-sm">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><i class="fas fa-code"></i> MohitCodes❤️</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </nav>
 
   <!-- Offcanvas Sidebar -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" data-bs-scroll="true" data-bs-backdrop="true">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><i class="fas fa-code"></i> MohitCodes❤️</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <h5 class="offcanvas-title"><i class="fas fa-code"></i> MohitCodes❤️</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-home me-1"></i>Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://outlaw-63.netlify.app/"><i class="fas fa-graduation-cap me-1"></i>Courses</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://mohitsaxena63.github.io/mohit-blog63/"><i class="fas fa-book me-1"></i>Tutorials</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://mohit-blog63.netlify.app/"><i class="fas fa-blog me-1"></i>Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-sticky-note me-1"></i>Notes</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-graduation-cap"></i> Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-book"></i> Tutorials</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-blog"></i> Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-sticky-note"></i> Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
-
+      
+      <!-- Search -->
       <form class="d-flex mt-3" role="search">
         <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
         <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
 
-      <div class="mt-3 d-flex gap-2">
-        <button class="btn btn-outline-primary" type="button"><i class="fas fa-sign-in-alt"></i> Login</button>
-        <button class="btn btn-outline-secondary" type="button"><i class="fas fa-user-plus"></i> Signup</button>
+      <!-- Login / Signup Buttons -->
+      <div class="mt-4 d-flex gap-2">
+        <a href="#" class="btn btn-outline-primary w-50"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="#" class="btn btn-dark w-50"><i class="fas fa-user-plus"></i> Signup</a>
       </div>
     </div>
   </div>
 
   <!-- Blog Section -->
   <div class="container mt-4">
-    <h1 class="mb-4">Latest Blog Posts</h1>
-
-    <div class="blog-post">
-      <h3>Blog Post Title 1</h3>
-      <p class="text-muted">August 15, 2025 | Mohit</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex non leo facilisis, a pretium nulla pharetra.</p>
-      <a href="#" class="btn btn-primary btn-sm">Read More</a>
-    </div>
-
-    <div class="blog-post">
-      <h3>Blog Post Title 2</h3>
-      <p class="text-muted">August 10, 2025 | Mohit</p>
-      <p>Curabitur ac odio at mauris feugiat laoreet. Integer nec ligula at ligula elementum volutpat nec non nulla.</p>
-      <a href="#" class="btn btn-primary btn-sm">Read More</a>
-    </div>
-
-    <div class="blog-post">
-      <h3>Blog Post Title 3</h3>
-      <p class="text-muted">August 5, 2025 | Mohit</p>
-      <p>Fusce et lectus sit amet orci fringilla tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
-      <a href="#" class="btn btn-primary btn-sm">Read More</a>
+    <h1 class="mb-4 text-center">Latest Blog Posts</h1>
+    <div class="row g-4">
+      <!-- Blog 1 -->
+      <div class="col-md-4">
+        <div class="card blog-card h-100">
+          <img src="https://www.codewithharry.com/_next/image?url=https%3A%2F%2Fcodewithharry.nyc3.cdn.digitaloceanspaces.com%2Fdashboard%2Fblog%2Fhow-to-find-python-installation-path%2F1744096610717-8.png&w=1920&q=75" class="card-img-top" alt="Blog 1">
+          <div class="card-body">
+            <h5 class="card-title">The Ultimate SQL Tutorial</h5>
+            <p class="card-text">MySQL is a database management system. A DBMS interacts with users and applications...</p>
+            <a href="#" class="btn btn-read">Read More</a>
+          </div>
+        </div>
+      </div>
+      <!-- Blog 2 -->
+      <div class="col-md-4">
+        <div class="card blog-card h-100">
+          <img src="https://www.codewithharry.com/_next/image?url=https%3A%2F%2Fcodewithharry.com%2Fblog-placeholder.jpg&w=1920&q=75" class="card-img-top" alt="Blog 2">
+          <div class="card-body">
+            <h5 class="card-title">How to integrate MongoDB into Next.js</h5>
+            <p class="card-text">Learn how to seamlessly integrate MongoDB into your Next.js applications with best practices...</p>
+            <a href="#" class="btn btn-read">Read More</a>
+          </div>
+        </div>
+      </div>
+      <!-- Blog 3 -->
+      <div class="col-md-4">
+        <div class="card blog-card h-100">
+          <img src="https://www.codewithharry.com/_next/image?url=https%3A%2F%2Fcodewithharry.nyc3.cdn.digitaloceanspaces.com%2Fdashboard%2Fblog%2Femail-validator-using-html-css-js%2F1744095875379-5.png&w=1920&q=75" class="card-img-top" alt="Blog 3">
+          <div class="card-body">
+            <h5 class="card-title">Deploying Next.js App on Ubuntu</h5>
+            <p class="card-text">Step by step guide to deploy your Next.js app on Ubuntu VPS for production...</p>
+            <a href="#" class="btn btn-read">Read More</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -137,40 +166,5 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Search & Offcanvas JS -->
-  <script>
-    // Search functionality
-    const searchForm = document.querySelector('form[role="search"]');
-    const searchInput = searchForm.querySelector('input[type="search"]');
-    const blogPosts = document.querySelectorAll('.blog-post');
-
-    function filterPosts(query) {
-      const lowerQuery = query.toLowerCase();
-      blogPosts.forEach(post => {
-        const title = post.querySelector('h3').textContent.toLowerCase();
-        const content = post.querySelector('p:not(.text-muted)').textContent.toLowerCase();
-        post.style.display = (title.includes(lowerQuery) || content.includes(lowerQuery)) ? 'block' : 'none';
-      });
-    }
-
-    searchForm.addEventListener('submit', e => {
-      e.preventDefault();
-      filterPosts(searchInput.value);
-    });
-
-    searchInput.addEventListener('input', e => {
-      filterPosts(searchInput.value);
-    });
-
-    // Auto-close offcanvas on link click
-    document.querySelectorAll('.offcanvas .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        const offcanvasEl = document.getElementById('offcanvasNavbar');
-        const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
-        if(bsOffcanvas) bsOffcanvas.hide();
-      });
-    });
-  </script>
 </body>
 </html>
